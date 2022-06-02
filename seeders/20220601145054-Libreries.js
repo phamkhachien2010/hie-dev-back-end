@@ -18,6 +18,8 @@ module.exports = {
                 link: 'https://www.npmjs.com/package/lodash',
                 type: 'Front-end',
                 tutorial: '',
+                createdAt: '2022-06-02 12:00:00',
+                updatedAt: '2022-06-02 12:00:00'
             },
             {
                 name: 'react spring',
@@ -26,6 +28,8 @@ module.exports = {
                 link: 'https://react-spring.io/',
                 type: 'Front-end',
                 tutorial: '',
+                createdAt: '2022-06-02 12:00:00',
+                updatedAt: '2022-06-02 12:00:00'
             },
             {
                 name: 'Cloud image 360',
@@ -34,6 +38,8 @@ module.exports = {
                 link: 'https://www.npmjs.com/package/js-cloudimage-360-view',
                 type: 'Front-end',
                 tutorial: '',
+                createdAt: '2022-06-02 12:00:00',
+                updatedAt: '2022-06-02 12:00:00'
             },
             {
                 name: 'sweet alert 2',
@@ -42,6 +48,8 @@ module.exports = {
                 link: 'https://sweetalert2.github.io/',
                 type: 'Front-end',
                 tutorial: '',
+                createdAt: '2022-06-02 12:00:00',
+                updatedAt: '2022-06-02 12:00:00'
             },
             {
                 name: 'axios',
@@ -50,6 +58,8 @@ module.exports = {
                 link: 'https://www.npmjs.com/package/axios',
                 type: 'Front-end',
                 tutorial: '',
+                createdAt: '2022-06-02 12:00:00',
+                updatedAt: '2022-06-02 12:00:00'
             },
             {
                 name: 'react-router-dom',
@@ -58,6 +68,8 @@ module.exports = {
                 link: 'https://www.npmjs.com/package/react-router-dom',
                 type: 'Front-end',
                 tutorial: '',
+                createdAt: '2022-06-02 12:00:00',
+                updatedAt: '2022-06-02 12:00:00'
             },
             {
                 name: 'ant design',
@@ -66,6 +78,8 @@ module.exports = {
                 link: 'https://ant.design/docs/react/getting-started',
                 type: 'Front-end',
                 tutorial: '',
+                createdAt: '2022-06-02 12:00:00',
+                updatedAt: '2022-06-02 12:00:00'
             },
             {
                 name: 'redux-saga',
@@ -74,6 +88,8 @@ module.exports = {
                 link: 'https://www.npmjs.com/package/redux-saga',
                 type: 'Front-end',
                 tutorial: 'có link',
+                createdAt: '2022-06-02 12:00:00',
+                updatedAt: '2022-06-02 12:00:00'
             },
             {
                 name: 'tailwindcss',
@@ -82,6 +98,8 @@ module.exports = {
                 link: 'https://tailwindcss.com/docs/installation',
                 type: 'Front-end',
                 tutorial: '',
+                createdAt: '2022-06-02 12:00:00',
+                updatedAt: '2022-06-02 12:00:00'
             },
             {
                 name: 'Formik',
@@ -90,6 +108,8 @@ module.exports = {
                 link: 'https://formik.org/docs/overview',
                 type: 'Front-end',
                 tutorial: '',
+                createdAt: '2022-06-02 12:00:00',
+                updatedAt: '2022-06-02 12:00:00'
             },
             {
                 name: ' yup',
@@ -98,6 +118,8 @@ module.exports = {
                 link: 'https://www.npmjs.com/package/yup',
                 type: 'Front-end',
                 tutorial: '',
+                createdAt: '2022-06-02 12:00:00',
+                updatedAt: '2022-06-02 12:00:00'
             },
             {
                 name: 'history version 4.10.0',
@@ -106,6 +128,8 @@ module.exports = {
                 link: '',
                 type: 'Front-end',
                 tutorial: 'Có link',
+                createdAt: '2022-06-02 12:00:00',
+                updatedAt: '2022-06-02 12:00:00'
             },
             {
                 name: '@tinymce/tinymce-react',
@@ -114,6 +138,8 @@ module.exports = {
                 link: 'https://www.tiny.cloud/docs/tinymce/6/react-cloud/',
                 type: 'Front-end',
                 tutorial: 'Có link',
+                createdAt: '2022-06-02 12:00:00',
+                updatedAt: '2022-06-02 12:00:00'
             },
             {
                 name: 'drag drop',
@@ -122,6 +148,8 @@ module.exports = {
                 link: 'https://react-dnd.github.io/react-dnd/about',
                 type: 'Front-end',
                 tutorial: 'Có link',
+                createdAt: '2022-06-02 12:00:00',
+                updatedAt: '2022-06-02 12:00:00'
             },
             {
                 name: 'moment',
@@ -130,6 +158,8 @@ module.exports = {
                 link: 'https://www.npmjs.com/package/moment',
                 type: 'Front-end',
                 tutorial: '',
+                createdAt: '2022-06-02 12:00:00',
+                updatedAt: '2022-06-02 12:00:00'
             },
             {
                 name: 'i18next',
@@ -138,6 +168,159 @@ module.exports = {
                 link: 'https://react.i18next.com/getting-started',
                 type: 'Front-end',
                 tutorial: '',
+                createdAt: '2022-06-02 12:00:00',
+                updatedAt: '2022-06-02 12:00:00'
+            },
+            {
+                name: 'aos',
+                setup: "npm i aos",
+                description: 'giúp chạy animation khi scroll đến vị trí',
+                link: 'https://www.npmjs.com/package/aos',
+                type: 'Front-end',
+                tutorial: '',
+                createdAt: '2022-06-02 12:00:00',
+                updatedAt: '2022-06-02 12:00:00'
+            },
+            {
+                name: 'react animate on scroll',
+                setup: "npm i react-animate-on-scroll",
+                description: 'giúp chạy animation khi scroll đến vị trí',
+                link: 'https://www.npmjs.com/package/react-animate-on-scroll',
+                type: 'Front-end',
+                tutorial: '',
+                createdAt: '2022-06-02 12:00:00',
+                updatedAt: '2022-06-02 12:00:00'
+            },
+
+            {
+                name: 'node mon',
+                setup: "npm i --save-dev nodemon",
+                description: 'Giúp chạy code NodeJs liên tục, cần cài đặt lệnh dev trong scripts của package.json',
+                link: 'https://www.npmjs.com/package/nodemon',
+                type: 'Back-end',
+                tutorial: '',
+                createdAt: '2022-06-02 12:00:00',
+                updatedAt: '2022-06-02 12:00:00'
+            },
+            {
+                name: 'fs',
+                setup: "Thư viện của nodeJs",
+                description: 'Giúp tạo các file system',
+                link: '',
+                type: 'Back-end',
+                tutorial: '',
+                createdAt: '2022-06-02 12:00:00',
+                updatedAt: '2022-06-02 12:00:00'
+            },
+            {
+                name: 'path',
+                setup: "Thư viện của nodeJs",
+                description: 'Giúp tạo các đường dẫn',
+                link: '',
+                type: 'Back-end',
+                tutorial: '',
+                createdAt: '2022-06-02 12:00:00',
+                updatedAt: '2022-06-02 12:00:00'
+            },
+            {
+                name: 'sequelize',
+                setup: "npm i sequeize",
+                description: 'Giúp kết nối và viết code SQL trong nodeJs',
+                link: 'https://sequelize.org/docs/v6/',
+                type: 'Back-end',
+                tutorial: 'Có link',
+                createdAt: '2022-06-02 12:00:00',
+                updatedAt: '2022-06-02 12:00:00'
+            },
+            {
+                name: 'mySql2',
+                setup: "npm i mysql2",
+                description: 'Giúp chuyển đối code nodeJs sang MySQL',
+                link: 'https://www.npmjs.com/package/mysql2',
+                type: 'Back-end',
+                tutorial: '',
+                createdAt: '2022-06-02 12:00:00',
+                updatedAt: '2022-06-02 12:00:00'
+            },
+            {
+                name: 'cors',
+                setup: "npm i cors",
+                description: 'Giúp các domain khác có thể lấy được dữ liệu trên domain backend',
+                link: 'https://www.npmjs.com/package/cors',
+                type: 'Back-end',
+                tutorial: '',
+                createdAt: '2022-06-02 12:00:00',
+                updatedAt: '2022-06-02 12:00:00'
+            },
+            {
+                name: 'bcryptjs',
+                setup: "npm i bcryptjs",
+                description: 'Giúp mã hoá 1 chuỗi, ứng dụng cho tạo password',
+                link: 'https://www.npmjs.com/package/bcryptjs',
+                type: 'Back-end',
+                tutorial: 'Có link',
+                createdAt: '2022-06-02 12:00:00',
+                updatedAt: '2022-06-02 12:00:00'
+            },
+            {
+                name: 'jsonwebtoken',
+                setup: "npm i jsonwebtoken",
+                description: 'Giúp tạo token từ những chuỗi được truyền vào, sử dụng trong lưu dữ liệu đăng nhập',
+                link: 'https://www.npmjs.com/package/jsonwebtoken',
+                type: 'Back-end',
+                tutorial: 'Có link',
+                createdAt: '2022-06-02 12:00:00',
+                updatedAt: '2022-06-02 12:00:00'
+            },
+            {
+                name: 'multer',
+                setup: "npm i multer",
+                description: 'Giúp upload các file lên server',
+                link: 'https://www.npmjs.com/package/multer',
+                type: 'Back-end',
+                tutorial: 'Có link',
+                createdAt: '2022-06-02 12:00:00',
+                updatedAt: '2022-06-02 12:00:00'
+            },
+            {
+                name: 'mkdirp',
+                setup: "npm i mkdirp",
+                description: 'Giúp tạo đường dẫn (ứng dụng cho upload file)',
+                link: 'https://www.npmjs.com/package/mkdirp',
+                type: 'Back-end',
+                tutorial: 'Có link',
+                createdAt: '2022-06-02 12:00:00',
+                updatedAt: '2022-06-02 12:00:00'
+            },
+            {
+                name: 'express-fingerprint',
+                setup: "npm i express-fingerprint",
+                description: 'Kiểm tra hệ điều hành của máy tính đang truy cập server, giúp phân biệt loại file thích hợp với hệ điều hành đó.',
+                link: 'https://www.npmjs.com/package/express-fingerprint',
+                type: 'Back-end',
+                tutorial: '',
+                createdAt: '2022-06-02 12:00:00',
+                updatedAt: '2022-06-02 12:00:00'
+            },
+            {
+                name: 'socket.io',
+                setup: "npm i socket.io",
+                description: 'Giúp tạo chức năng realtime, chatbox',
+                link: 'https://www.npmjs.com/package/socket.io',
+                type: 'Back-end',
+                tutorial: 'Có link',
+                createdAt: '2022-06-02 12:00:00',
+                updatedAt: '2022-06-02 12:00:00'
+            },
+            {
+                name: 'date-format',
+                setup: "npm i date-format",
+                description: 'Giúp format thời gian',
+                link: 'https://www.npmjs.com/package/date-format',
+                type: 'Back-end',
+                tutorial: '',
+                createdAt: '2022-06-02 12:00:00',
+                updatedAt: '2022-06-02 12:00:00'
             },
         ], {});
     },
