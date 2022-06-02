@@ -30,11 +30,24 @@ const checkEmptyTodo = async(req, res, next) => {
 const checkEmptyLibrary = async(req, res, next) => {
     const { name, setup, description } = req.body;
     if (!name) {
-        res.status(500).send({ message: "Tên thư viện không được để trống!" })
+        res.status(500).send({ message: "Name must not empty!" })
     } else if (!setup) {
-        res.status(500).send({ message: 'setup is require!' })
+        res.status(500).send({ message: 'Setup must not empty!' })
     } else if (!description) {
-        res.status(500).send({ message: 'Description is require!' })
+        res.status(500).send({ message: 'Description must not empty!' })
+    } else {
+        next();
+    }
+}
+
+const checkEmptyComment = async(req, res, next) => {
+    const { name, email, comment } = req.body;
+    if (!name) {
+        res.status(500).send({ message: "Nhập tên của bạn!" })
+    } else if (!email) {
+        res.status(500).send({ message: 'Nhập email của bạn!' })
+    } else if (!comment) {
+        res.status(500).send({ message: 'Nhập comment!' })
     } else {
         next();
     }
@@ -44,5 +57,6 @@ module.exports = {
     checkEmpty,
     checkEmptyWork,
     checkEmptyTodo,
-    checkEmptyLibrary
+    checkEmptyLibrary,
+    checkEmptyComment
 }

@@ -1,6 +1,5 @@
 const { Libraries } = require('../models');
 const { Op } = require('sequelize');
-const { getListObject } = require('../service/object/objectSuportController');
 
 const createLibraries = async(req, res) => {
     const { name, setup, description, link, type, tutorial } = req.body;
@@ -13,12 +12,29 @@ const createLibraries = async(req, res) => {
 }
 
 const getAllLibraries = async(req, res) => {
+    const { description } = req.query;
+    console.log(req.query);
     try {
-        const listLibraries = getListObject(Libraries, 'h');
-        if (listLibraries) {
-            res.status(200).send(listLibraries);
+        if (description) {
+            const listLibraries = await Libraries.findAll({
+                where: {
+                    description: {
+                        [Op.like]: `%${description}%`
+                    }
+                },
+            });
+            if (listLibraries) {
+                res.status(200).send(listLibraries);
+            } else {
+                res.status(404).send({ message: 'Not found listLibraries!' })
+            }
         } else {
-            res.status(404).send({ message: 'Not found listLibraries!' })
+            const listLibraries = await Libraries.findAll();
+            if (listLibraries) {
+                res.status(200).send(listLibraries);
+            } else {
+                res.status(404).send({ message: 'Not found listLibraries!' })
+            }
         }
     } catch (error) {
         res.status(500).send(error)

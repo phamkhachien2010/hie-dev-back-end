@@ -24,7 +24,7 @@ module.exports = {
             {
                 name: 'react spring',
                 setup: "npm i react-spring",
-                description: 'Giúp xử lý xử lý animationtrong react',
+                description: 'Giúp xử lý animation trong react',
                 link: 'https://react-spring.io/',
                 type: 'Front-end',
                 tutorial: '',
