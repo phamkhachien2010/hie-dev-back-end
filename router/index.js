@@ -1,5 +1,5 @@
 const express = require('express');
-const { commandRouter } = require('./Command.router');
+const { commandRouter } = require('./command.router');
 const { commentRouter } = require('./comment.router');
 const { librariesRouter } = require('./libraries.router');
 const { todoListRouter } = require('./todoList.router');
