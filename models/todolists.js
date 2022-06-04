@@ -25,7 +25,14 @@ module.exports = (sequelize, DataTypes) => {
         type: {
             type: DataTypes.STRING,
             defaultValue: 'WILL_DO'
-        }
+        },
+        userId: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'Users',
+                key: 'id'
+            }
+        },
     }, {
         sequelize,
         modelName: 'TodoLists',
