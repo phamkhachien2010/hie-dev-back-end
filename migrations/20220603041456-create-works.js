@@ -19,6 +19,13 @@ module.exports = {
                 type: Sequelize.STRING,
                 defaultValue: 'WILL_DO'
             },
+            todoListId: {
+                type: Sequelize.INTEGER,
+                references: {
+                    model: 'TodoLists',
+                    key: 'id'
+                }
+            },
             createdAt: {
                 allowNull: false,
                 type: Sequelize.DATE
