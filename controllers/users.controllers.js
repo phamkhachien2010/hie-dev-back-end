@@ -4,12 +4,12 @@ const jwt = require('jsonwebtoken');
 const { bcryptPassword } = require('../service/bcryptPassword/bcryptPassword');
 
 const register = async(req, res) => {
-    const { userName, password, confirmPasswork } = req.body;
+    const { userName, password, confirmPassword } = req.body;
     try {
         const listUsers = await Users.findAll();
         const user = listUsers.find((user) => user.userName === userName);
         if (!user) {
-            if (password === confirmPasswork) {
+            if (password === confirmPassword) {
                 const hashPassword = bcryptPassword(password)
                 const newUser = await Users.create({ userName, password: hashPassword });
                 res.status(201).send(newUser)
