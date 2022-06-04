@@ -4,14 +4,18 @@ const jwt = require('jsonwebtoken');
 const { bcryptPassword } = require('../service/bcryptPassword/bcryptPassword');
 
 const register = async(req, res) => {
-    const { userName, password } = req.body;
+    const { userName, password, confirmPasswork } = req.body;
     try {
         const listUsers = await Users.findAll();
         const user = listUsers.find((user) => user.userName === userName);
         if (!user) {
-            const hashPassword = bcryptPassword(password)
-            const newUser = await Users.create({ userName, password: hashPassword });
-            res.status(201).send(newUser)
+            if (password === confirmPasswork) {
+                const hashPassword = bcryptPassword(password)
+                const newUser = await Users.create({ userName, password: hashPassword });
+                res.status(201).send(newUser)
+            } else {
+                res.status(500).send({ message: 'Nhập lại đúng mật khẩu' })
+            }
         } else {
             res.status(500).send({ message: 'Tài khoản đã tồn tại.' })
         }
