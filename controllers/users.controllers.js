@@ -45,7 +45,11 @@ const login = async(req, res) => {
             const isAuth = bcrypt.compareSync(password, userLogin.password); // giải mã password
             if (isAuth) {
                 const token = jwt.sign({ userName: userLogin.userName, password: userLogin.password, type: userLogin.type }, "hien0208"); // tạo token khi đăng nhập
-                res.status(200).send({ message: "Đăng nhập thành công", token })
+                res.status(200).send({
+                    message: "Đăng nhập thành công",
+                    token,
+                    content: userLogin
+                })
             } else {
                 res.status(404).send({ message: "Mật khẩu không đúng" })
             }
