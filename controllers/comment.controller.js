@@ -18,7 +18,7 @@ const getAllComments = async(req, res) => {
     try {
         const listComments = await Comments.findAll();
         if (listComments) {
-            res.status(201).send(listComments)
+            res.status(200).send(listComments)
         } else {
             res.status(404).send({ message: 'Not found comment!' })
         }
@@ -36,7 +36,7 @@ const getDetailComment = async(req, res) => {
             }
         })
         if (comment) {
-            res.status(201).send(comment)
+            res.status(200).send(comment)
         } else {
             res.status(404).send({ message: 'Not found comment!' })
         }
@@ -59,7 +59,7 @@ const editComment = async(req, res) => {
             commentEdit.email = email;
             commentEdit.comment = comment;
             await commentEdit.save();
-            res.status(201).send(commentEdit)
+            res.status(200).send(commentEdit)
         } else {
             res.status(404).send({ message: 'Not found comment!' })
         }
