@@ -92,21 +92,25 @@ const clientEditUser = async(req, res) => {
     const { userName, password } = req.body;
     const { user } = req;
     try {
+        const listUser = await Users.findAll();
+
         const userFound = await Users.findOne({
             where: {
                 userName: user.userName
             }
         })
-        if (userFound) {
-
+        const index = listUser.findIndex((user) => user.userName === userName);
+        if (userFound && index === -1) {
             const salt = bcrypt.genSaltSync(10);
             const hashPassword = bcrypt.hashSync(password, salt);
             userFound.userName = userName;
             userFound.password = hashPassword;
             await userFound.save();
             res.status(200).send(userFound);
-        } else {
+        } else if (!userFound) {
             res.status(404).send({ message: 'Không tìm thấy user' })
+        } else {
+            res.status(500).send({ message: 'Tài khoản đã tồn tại' })
         }
 
     } catch (error) {
