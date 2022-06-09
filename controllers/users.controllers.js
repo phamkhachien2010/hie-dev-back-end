@@ -67,11 +67,14 @@ const login = async(req, res) => {
 
 const uploadAvatar = async(req, res) => {
     const { file } = req;
-    const urlImage = `http://localhost:7000/${file.path}`
+    const urlImage = `https://hie-dev.herokuapp.com/${file.path}`
     const { user } = req;
     try {
         const userFound = await Users.findOne({
-            userName: user.userName
+            where: {
+                userName: user.userName
+            }
+
         })
         if (userFound) {
             userFound.avatar = urlImage;
