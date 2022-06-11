@@ -15,7 +15,7 @@ const uploadImage = (type) => {
     const upload = multer({
         storage: storage,
         fileFilter: function(req, file, cb) {
-            console.log(file);
+            console.log('file truyen vao', file);
             const extentionImageList = ['.png', '.jpg'];
             const extention = file.originalname.slice(-4);
             const check = extentionImageList.includes(extention);
