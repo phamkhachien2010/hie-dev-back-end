@@ -9,6 +9,19 @@ const checkEmpty = async(req, res, next) => {
     }
 }
 
+const checkEmptyEditUser = async(req, res, next) => {
+    const { userName, oldPassword, newPassword } = req.body;
+    if (!userName) {
+        res.status(500).send({ message: "Tài khoản không được để trống" });
+    } else if (!oldPassword) {
+        res.status(500).send({ message: "Mật khẩu cũ không được để trống" });
+    } else if (!newPassword) {
+        res.status(500).send({ message: "Mật khẩu mới không được để trống" });
+    } else {
+        next();
+    }
+}
+
 const checkEmptyWork = async(req, res, next) => {
     const { name } = req.body;
     if (!name) {
@@ -58,5 +71,6 @@ module.exports = {
     checkEmptyWork,
     checkEmptyTodo,
     checkEmptyLibrary,
-    checkEmptyComment
+    checkEmptyComment,
+    checkEmptyEditUser
 }

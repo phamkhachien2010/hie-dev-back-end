@@ -67,14 +67,13 @@ const login = async(req, res) => {
 
 const uploadAvatar = async(req, res) => {
     const { file } = req;
-    const urlImage = `https://hie-dev.herokuapp.com/${file.path}`
+    const urlImage = file.path
     const { user } = req;
     try {
         const userFound = await Users.findOne({
             where: {
                 userName: user.userName
             }
-
         })
         if (userFound) {
             userFound.avatar = urlImage;
@@ -89,30 +88,35 @@ const uploadAvatar = async(req, res) => {
 }
 
 const clientEditUser = async(req, res) => {
-    const { userName, password } = req.body;
+    const { userName, oldPassword, newPassword } = req.body;
     const { user } = req;
     try {
         const listUser = await Users.findAll();
-
         const userFound = await Users.findOne({
             where: {
                 userName: user.userName
             }
         })
         const index = listUser.findIndex((user) => user.userName === userName);
-        if (userFound && index === -1) {
-            const salt = bcrypt.genSaltSync(10);
-            const hashPassword = bcrypt.hashSync(password, salt);
-            userFound.userName = userName;
-            userFound.password = hashPassword;
-            await userFound.save();
-            res.status(200).send(userFound);
-        } else if (!userFound) {
-            res.status(404).send({ message: 'Không tìm thấy user' })
-        } else {
-            res.status(500).send({ message: 'Tài khoản đã tồn tại' })
-        }
+        const isAuth = bcrypt.compareSync(oldPassword, user.password);
 
+        if (userFound) { //tìm trong tất cả user có tồn tại user đang trỏ đến không
+            if (isAuth) { //kiểm tra mật khẩu cũ có đúng không
+                if (index === -1) { //kiểm tra tên tài khoản đã tồn tại chưa
+                    const hashPassword = bcryptPassword(newPassword)
+                    userFound.userName = userName;
+                    userFound.password = hashPassword;
+                    await userFound.save();
+                    res.status(200).send(userFound);
+                } else {
+                    res.status(500).send({ message: 'Tài khoản đã tồn tại' })
+                }
+            } else {
+                res.status(500).send({ message: 'Mật khẩu cũ không đúng' })
+            }
+        } else {
+            res.status(404).send({ message: 'Không tìm thấy user' })
+        }
     } catch (error) {
         res.status(500).send(error)
     }
