@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         avatar: {
             type: DataTypes.STRING,
-            defaultValue: 'https://hie-dev.herokuapp.com/public/images/avatar/1654962543755_avatar-def.jpg'
+            defaultValue: 'https://i.pinimg.com/736x/f3/e6/1e/f3e61e48fa385269de23ba7b870f5446.jpg'
         },
         type: {
             type: DataTypes.STRING,

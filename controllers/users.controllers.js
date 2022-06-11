@@ -68,7 +68,7 @@ const login = async(req, res) => {
 const uploadAvatar = async(req, res) => {
     const { file } = req;
     console.log(file);
-    const urlImage = file.path
+    const urlImage = `https://hie-dev.herokuapp.com/${file.path}`
     const { user } = req;
     try {
         const userFound = await Users.findOne({
@@ -79,7 +79,7 @@ const uploadAvatar = async(req, res) => {
         if (userFound) {
             userFound.avatar = urlImage;
             await userFound.save();
-            res.status(200).send(urlImage)
+            res.status(200).send(userFound)
         } else {
             res.status(404).send({ message: 'Không tìm thấy user' })
         }
