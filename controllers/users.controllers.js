@@ -92,12 +92,13 @@ const clientEditUser = async(req, res) => {
     const { user } = req;
     try {
         const listUser = await Users.findAll();
+        const listUserWithoutUser = listUser.filter((usercr) => usercr.userName !== user.userName);
         const userFound = await Users.findOne({
             where: {
                 userName: user.userName
             }
         })
-        const index = listUser.findIndex((user) => user.userName === userName);
+        const index = listUserWithoutUser.findIndex((user) => user.userName === userName);
         const isAuth = bcrypt.compareSync(oldPassword, user.password);
 
         if (userFound) { //tìm trong tất cả user có tồn tại user đang trỏ đến không
