@@ -1,28 +1,29 @@
 'use strict';
 module.exports = {
     async up(queryInterface, Sequelize) {
-        await queryInterface.createTable('Users', {
+        await queryInterface.createTable('Works', {
             id: {
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
                 type: Sequelize.INTEGER
             },
-            userName: {
-                type: Sequelize.STRING,
-                allowNull: false,
+            name: {
+                type: Sequelize.STRING
             },
-            password: {
-                type: Sequelize.STRING,
-                allowNull: false
-            },
-            avatar: {
-                type: Sequelize.STRING,
-                defaultValue: "https://cdn.icon-icons.com/icons2/2506/PNG/512/user_icon_150670.png"
+            description: {
+                type: Sequelize.TEXT
             },
             type: {
                 type: Sequelize.STRING,
-                defaultValue: 'Client'
+                defaultValue: 'WILL_DO'
+            },
+            todoListId: {
+                type: Sequelize.INTEGER,
+                references: {
+                    model: 'TodoLists',
+                    key: 'id'
+                }
             },
             createdAt: {
                 allowNull: false,
@@ -35,6 +36,6 @@ module.exports = {
         });
     },
     async down(queryInterface, Sequelize) {
-        await queryInterface.dropTable('Users');
+        await queryInterface.dropTable('Works');
     }
 };

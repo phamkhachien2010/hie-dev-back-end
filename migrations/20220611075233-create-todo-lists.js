@@ -1,28 +1,31 @@
 'use strict';
 module.exports = {
     async up(queryInterface, Sequelize) {
-        await queryInterface.createTable('Works', {
+        await queryInterface.createTable('TodoLists', {
             id: {
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
                 type: Sequelize.INTEGER
             },
-            name: {
+            title: {
                 type: Sequelize.STRING,
                 allowNull: false
             },
-            description: {
-                type: Sequelize.TEXT
+            from: {
+                type: Sequelize.DATE
+            },
+            to: {
+                type: Sequelize.DATE
             },
             type: {
                 type: Sequelize.STRING,
                 defaultValue: 'WILL_DO'
             },
-            todoListId: {
+            userId: {
                 type: Sequelize.INTEGER,
                 references: {
-                    model: 'TodoLists',
+                    model: 'Users',
                     key: 'id'
                 }
             },
@@ -37,6 +40,6 @@ module.exports = {
         });
     },
     async down(queryInterface, Sequelize) {
-        await queryInterface.dropTable('Works');
+        await queryInterface.dropTable('TodoLists');
     }
 };

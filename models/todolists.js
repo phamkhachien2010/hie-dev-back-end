@@ -9,10 +9,10 @@ module.exports = (sequelize, DataTypes) => {
          * This method is not a part of Sequelize lifecycle.
          * The `models/index` file will call this method automatically.
          */
-        static associate({ Works, Users }) {
+        static associate({ Users, Works }) {
             // define association here
-            this.hasMany(Works, { foreignKey: 'todoListId' });
             this.belongsTo(Users, { foreignKey: 'userId' })
+            this.hasMany(Works, { foreignKey: 'todoListId' })
         }
     }
     TodoLists.init({
@@ -25,14 +25,7 @@ module.exports = (sequelize, DataTypes) => {
         type: {
             type: DataTypes.STRING,
             defaultValue: 'WILL_DO'
-        },
-        userId: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'Users',
-                key: 'id'
-            }
-        },
+        }
     }, {
         sequelize,
         modelName: 'TodoLists',

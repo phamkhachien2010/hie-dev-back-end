@@ -15,10 +15,7 @@ module.exports = (sequelize, DataTypes) => {
         }
     }
     Works.init({
-        name: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
+        name: DataTypes.STRING,
         description: DataTypes.TEXT,
         type: {
             type: DataTypes.STRING,

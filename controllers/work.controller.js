@@ -4,7 +4,8 @@ const createWork = async(req, res) => {
     const { name, description, todoListId } = req.body;
     try {
         const listWorks = await Works.findAll();
-        const workFilter = listWorks.find((work) => work.name === name);
+        const listWorkFilter = listWorks.filter((work) => work.todoListId === todoListId)
+        const workFilter = listWorkFilter.find((work) => work.name === name);
         if (!workFilter) {
             const newWork = await Works.create({ name, description, todoListId });
             res.status(201).send(newWork)

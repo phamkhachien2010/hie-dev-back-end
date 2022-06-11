@@ -1,4 +1,4 @@
-const { Users } = require('../models');
+const { Users, TodoLists } = require('../models');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const { bcryptPassword } = require('../service/bcryptPassword/bcryptPassword');
@@ -68,7 +68,7 @@ const login = async(req, res) => {
 const uploadAvatar = async(req, res) => {
     const { file } = req;
     console.log(file);
-    const urlImage = `${file.path}`
+    const urlImage = file.path
     const { user } = req;
     try {
         const userFound = await Users.findOne({
@@ -148,11 +148,50 @@ const adminEditType = async(req, res) => {
 const deleteUser = async(req, res) => {
     const { id } = req.params;
     try {
+        const todolist = await TodoLists.findAll();
+        const todoListFilter = await todolist.filter((todo) => todo.userId == id)
         const userDelete = await Users.findOne({
             where: {
                 id
             }
         })
+        if (todoListFilter.length !== 0) {
+            res.status(500).send({ message: 'Người dùng có thể vẫn còn công việc.' })
+        } else {
+            if (userDelete) {
+                await Users.destroy({
+                    where: {
+                        id
+                    }
+                })
+                res.status(200).send({ message: 'Xoá user thành công!' })
+            } else {
+                res.status(404).send({ message: 'Không tìm thấy user' })
+            }
+        }
+
+    } catch (error) {
+        res.status(500).send(error)
+    }
+}
+
+const deleteAccount = async(req, res) => {
+    const { id } = req.params;
+    try {
+        const todolist = await TodoLists.findAll();
+        const todoListFilter = await todolist.filter((todo) => todo.userId == id)
+        const userDelete = await Users.findOne({
+            where: {
+                id
+            }
+        })
+        for (let todo of todoListFilter) {
+            await TodoLists.destroy({
+                where: {
+                    id: todo.id
+                }
+            })
+        }
         if (userDelete) {
             await Users.destroy({
                 where: {
@@ -163,6 +202,7 @@ const deleteUser = async(req, res) => {
         } else {
             res.status(404).send({ message: 'Không tìm thấy user' })
         }
+
     } catch (error) {
         res.status(500).send(error)
     }
@@ -176,5 +216,6 @@ module.exports = {
     uploadAvatar,
     clientEditUser,
     adminEditType,
-    deleteUser
+    deleteUser,
+    deleteAccount
 }

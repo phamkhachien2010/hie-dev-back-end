@@ -1,10 +1,11 @@
-const { TodoLists, Users } = require('../models');
+const { TodoLists, Users, Works } = require('../models');
 
 const createTodoList = async(req, res) => {
     const { title, from, to, userId } = req.body;
     try {
         const listTodos = await TodoLists.findAll();
-        const todoFilter = listTodos.find((todo) => todo.title === title)
+        const listTodosFilter = listTodos.filter((todo) => todo.userId === userId)
+        const todoFilter = listTodosFilter.find((todo) => todo.title === title)
         if (!todoFilter) {
             const newTodo = await TodoLists.create({ title, from, to, userId });
             res.status(201).send(newTodo)
@@ -76,7 +77,17 @@ const editTodo = async(req, res) => {
 
 const deleteTodo = async(req, res) => {
     const { id } = req.params;
+    console.log(id);
     try {
+        const listWorks = await Works.findAll();
+        let listWorkFilter = await listWorks.filter((work) => work.todoListId == id);
+        for (let work of listWorkFilter) {
+            await Works.destroy({
+                where: {
+                    id: work.id
+                }
+            })
+        }
         const todoDelete = await TodoLists.findOne({
             where: {
                 id
@@ -92,6 +103,7 @@ const deleteTodo = async(req, res) => {
         } else {
             res.status(404).send({ message: "Không tìm thấy todolist" })
         }
+
     } catch (error) {
         res.status(500).send(error)
     }

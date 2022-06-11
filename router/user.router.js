@@ -1,5 +1,5 @@
  const express = require('express');
- const { register, login, getAllUser, uploadAvatar, clientEditUser, adminEditType, deleteUser } = require('../controllers/users.controllers');
+ const { register, login, getAllUser, uploadAvatar, clientEditUser, adminEditType, deleteUser, deleteAccount } = require('../controllers/users.controllers');
  const { authenticate } = require('../middleware/authenticate');
  const { authorize } = require('../middleware/authorize');
  const { uploadImage } = require('../middleware/uploadImg');
@@ -14,6 +14,7 @@
  userRouter.put('/edit-userName', checkEmptyEditUser, authenticate, clientEditUser);
  userRouter.put('/edit-type-user/:id', authenticate, authorize(['SUPER_ADMIN']), adminEditType);
  userRouter.delete('/delete-user/:id', authenticate, authorize(['SUPER_ADMIN']), deleteUser);
+ userRouter.delete('/delete-account/:id', authenticate, deleteAccount);
 
  module.exports = {
      userRouter

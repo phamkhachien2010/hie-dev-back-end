@@ -17,37 +17,19 @@ module.exports = (sequelize, DataTypes) => {
     Users.init({
         userName: {
             type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                checkEmpty: (value) => {
-                    if (value) {
-                        return true;
-                    } else {
-                        throw Error('Tên không đươc để trống')
-                    }
-                }
-            }
+            allowNull: false
         },
         password: {
             type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                checkEmpty: (value) => {
-                    if (value) {
-                        return true;
-                    } else {
-                        throw Error('Mật khẩu không đươc để trống')
-                    }
-                }
-            }
+            allowNull: false
         },
         avatar: {
             type: DataTypes.STRING,
-            defaultValue: "https://cdn.icon-icons.com/icons2/2506/PNG/512/user_icon_150670.png"
+            defaultValue: 'https://cdn.icon-icons.com/icons2/2506/PNG/512/user_icon_150670.png'
         },
         type: {
             type: DataTypes.STRING,
-            defaultValue: 'Client'
+            defaultValue: 'CLIENT'
         }
     }, {
         sequelize,
