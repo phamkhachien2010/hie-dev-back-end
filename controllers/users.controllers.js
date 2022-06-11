@@ -79,7 +79,7 @@ const uploadAvatar = async(req, res) => {
         if (userFound) {
             userFound.avatar = urlImage;
             await userFound.save();
-            res.status(200).send(userFound)
+            res.status(200).send(urlImage)
         } else {
             res.status(404).send({ message: 'Không tìm thấy user' })
         }

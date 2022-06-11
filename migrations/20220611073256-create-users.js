@@ -18,7 +18,7 @@ module.exports = {
             },
             avatar: {
                 type: Sequelize.STRING,
-                defaultValue: 'https://hie-dev.herokuapp.com/public/images/avatar/1654961556661_avatar-default.png'
+                defaultValue: 'https://hie-dev.herokuapp.com/public/images/avatar/1654962543755_avatar-def.jpg'
             },
             type: {
                 type: Sequelize.STRING,
