@@ -67,7 +67,7 @@ const login = async(req, res) => {
 
 const uploadAvatar = async(req, res) => {
     const { file } = req;
-    const urlImage = `https://hie-dev.herokuapp.com/${file.path}`
+    const urlImage = `https://hie-dev.herokuapp.com/api/v1/${file.path}`
     const { user } = req;
     try {
         const userFound = await Users.findOne({
